@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.logo {
+  font-weight: 500;
+}
+
+.logo__div {
+  display: flex;
+  align-items: center;
+}
+
+.logo__div svg {
+  font-size: 2.5rem;
+}
+.navbar {
+  align-items: center;
+  display: flex;
+  font-size: 1.6rem;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 120rem;
+  padding: 3rem 0;
+}
+
+.links__div {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.nav__link,
+.nav__link:active,
+.nav__link:visited {
+  color: #444;
+  text-decoration: none;
+}
+
+.active__link {
+  border-bottom: 1px solid #b05ec4;
+}
+
+.cart__div {
+  display: flex;
+  align-items: center;
+}
+
+.cart__link,
+.cart__link:active,
+.cart__link:visited {
+  display: flex;
+  align-items: center;
+  color: #444;
+  text-decoration: none;
+}
+
+.cart__div div {
+  display: flex;
+  align-items: center;
+}
+
+.cart__div div svg {
+  font-size: 2.5rem;
+}
+
+.cart__counter {
+  background: #b05ec4;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-left: -1rem;
+  padding: 0 5px;
+  vertical-align: top;
+  border-radius: 0.9rem;
+}
