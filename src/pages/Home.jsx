@@ -1,3 +1,4 @@
+import FeaturedInSection from "../components/FeaturedIn";
 import HomeSection from "../components/HomeSection";
 import Navbar from "../components/Navbar";
 
@@ -7,6 +8,7 @@ function Home() {
       <header className="header">
         <Navbar></Navbar>
         <HomeSection></HomeSection>
+        <FeaturedInSection></FeaturedInSection>
       </header>
     </>
   );

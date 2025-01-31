@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-
+import { FaArrowDownLong } from "react-icons/fa6";
 function HomeSection() {
   return (
     <section className="home__section">
@@ -14,7 +14,9 @@ function HomeSection() {
         </div>
         <div className="home__sections__btns">
           <Link className="home__explore__btn btn">Explore products</Link>
-          <button className="home__learn__btn btn">Learn more</button>
+          <button className="home__learn__btn btn">
+            Learn more <FaArrowDownLong />
+          </button>
         </div>
       </div>
       <div className="home__section__right">

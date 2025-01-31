@@ -10,6 +10,7 @@ html {
 
 .logo {
   font-weight: 500;
+  color: #444;
 }
 
 .logo__div {
@@ -127,7 +128,42 @@ a:visited {
   transition: all 0.3s;
 }
 
-.home__explore__btn {
+.home__explore__btn,
+.home__explore__btn:active,
+.home__explore__btn:visited {
   background-color: #b05ec4;
   color: #fff;
+}
+
+.featured__in__section {
+  background-color: #f1f3f5;
+  padding: 15rem 0;
+  margin: 0 auto;
+  width: 75%;
+}
+
+.featured__in__heading {
+  color: #888;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.75px;
+  margin-bottom: 1.4rem;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-filter: brightness(0);
+  filter: brightness(0);
+  height: 3rem;
+  opacity: 50%;
+}
+
+.featured__in__logos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.featured__in__logo {
+  -webkit-filter: brightness(0);
+  filter: brightness(0);
+  height: 3rem;
+  opacity: 50%;
 }
