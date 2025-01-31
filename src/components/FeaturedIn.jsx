@@ -3,8 +3,8 @@ function FeaturedInSection() {
     "/src/assets/images/techCrunch.png",
     "/src/assets/images/businessInsider.png",
     "/src/assets/images/newYorkTimes.png",
-    "/src/assets/images/usaToday.png",
     "/src/assets/images/forbes.png",
+    "/src/assets/images/usaToday.png",
   ];
 
   return (
