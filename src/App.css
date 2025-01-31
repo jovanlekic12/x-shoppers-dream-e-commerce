@@ -33,12 +33,12 @@ html {
 .links__div {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 3.5rem;
 }
 
-.nav__link,
-.nav__link:active,
-.nav__link:visited {
+a,
+a:active,
+a:visited {
   color: #444;
   text-decoration: none;
 }
@@ -52,22 +52,15 @@ html {
   align-items: center;
 }
 
-.cart__link,
-.cart__link:active,
-.cart__link:visited {
-  display: flex;
-  align-items: center;
-  color: #444;
-  text-decoration: none;
-}
-
 .cart__div div {
   display: flex;
   align-items: center;
+  color: #444;
 }
 
 .cart__div div svg {
   font-size: 2.5rem;
+  color: #444;
 }
 
 .cart__counter {
@@ -78,4 +71,63 @@ html {
   padding: 0 5px;
   vertical-align: top;
   border-radius: 0.9rem;
+}
+
+.home__section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  max-width: 120rem;
+  padding-top: 5.2rem;
+  background-color: #fff;
+}
+
+.home__section__text {
+  margin-top: 6.2rem;
+}
+
+.home__section__right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.home__section__img {
+  border-radius: 0.25rem;
+  width: 82%;
+}
+
+.heading__primary {
+  font-size: 4.8rem;
+  margin-bottom: 2rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.home__paragraph {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.9;
+  margin-bottom: 2.2rem;
+  color: #444;
+}
+
+.home__section__btns {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1.2rem 2.4rem;
+  transition: all 0.3s;
+}
+
+.home__explore__btn {
+  background-color: #b05ec4;
+  color: #fff;
 }

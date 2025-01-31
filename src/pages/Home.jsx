@@ -1,3 +1,4 @@
+import HomeSection from "../components/HomeSection";
 import Navbar from "../components/Navbar";
 
 function Home() {
@@ -5,6 +6,7 @@ function Home() {
     <>
       <header className="header">
         <Navbar></Navbar>
+        <HomeSection></HomeSection>
       </header>
     </>
   );
