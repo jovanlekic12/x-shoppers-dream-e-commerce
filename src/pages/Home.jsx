@@ -1,3 +1,4 @@
+import CreedsSection from "../components/CreedsSection";
 import FeaturedInSection from "../components/FeaturedIn";
 import FeaturedProductsSection from "../components/FeaturedProducts";
 import HomeSection from "../components/HomeSection";
@@ -11,6 +12,7 @@ function Home() {
         <HomeSection></HomeSection>
         <FeaturedInSection></FeaturedInSection>
         <FeaturedProductsSection></FeaturedProductsSection>
+        <CreedsSection></CreedsSection>
       </header>
     </>
   );

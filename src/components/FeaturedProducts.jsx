@@ -20,36 +20,42 @@ function FeaturedProductsSection() {
   ];
 
   return (
-    <section className="featured__products__section">
-      <header className="featured__products__header">
-        <h3 className="featured__products__heading1">FEATURED PRODUCTS</h3>
-        <h4 className="featured__products__heading2">
-          The art of modern living unlocked.
-        </h4>
-      </header>
-      <div className="featured__products__container">
-        {products.map((product) => {
-          return (
-            <article className="featured__products__card">
-              <Link>
-                <img
-                  src={product.img}
-                  alt="product image"
-                  className="featured__product__img"
-                />
-              </Link>
-              <div className="featured__product__div">
-                <span className="featured__product__name">{product.name}</span>
-                <span className="featured__product__price">
-                  $
-                  {product.price.toLocaleString("en-US", {
-                    minimumFractionDigits: 2,
-                  })}
-                </span>
-              </div>
-            </article>
-          );
-        })}
+    <section className="section">
+      <div className="section__main">
+        <header className="section__header">
+          <h3 className="section__heading1">Creeds we live by</h3>
+          <h4 className="section__heading2">
+            Elevate your home with our attitude of excellence and timeless
+            style.
+          </h4>
+        </header>
+        <div className="section__container">
+          {products.map((product) => {
+            return (
+              <article className="featured__products__card">
+                <Link>
+                  <img
+                    src={product.img}
+                    alt="product image"
+                    className="featured__product__img"
+                  />
+                </Link>
+                <div className="featured__product__div">
+                  <span className="featured__product__name">
+                    {product.name}
+                  </span>
+                  <span className="featured__product__price">
+                    $
+                    {product.price.toLocaleString("en-US", {
+                      minimumFractionDigits: 2,
+                    })}
+                  </span>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+        <Link className="all__products__btn btn">All products</Link>
       </div>
     </section>
   );
