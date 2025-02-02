@@ -1,7 +1,8 @@
-import CreedsSection from "../components/CreedsSection";
-import FeaturedInSection from "../components/FeaturedIn";
-import FeaturedProductsSection from "../components/FeaturedProducts";
-import HomeSection from "../components/HomeSection";
+import CreedsSection from "../components/HomePageComponents/CreedsSection";
+import FeaturedInSection from "../components/HomePageComponents/FeaturedIn";
+import FeaturedProductsSection from "../components/HomePageComponents/FeaturedProducts";
+import HomeSection from "../components/HomePageComponents/HomeSection";
+import OperationsSection from "../components/HomePageComponents/OperationsSection";
 import Navbar from "../components/Navbar";
 
 function Home() {
@@ -13,6 +14,7 @@ function Home() {
         <FeaturedInSection></FeaturedInSection>
         <FeaturedProductsSection></FeaturedProductsSection>
         <CreedsSection></CreedsSection>
+        <OperationsSection></OperationsSection>
       </header>
     </>
   );
