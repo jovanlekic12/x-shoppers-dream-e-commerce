@@ -32,7 +32,7 @@ function FeaturedProductsSection() {
         <div className="section__container">
           {products.map((product) => {
             return (
-              <article className="featured__products__card">
+              <article className="featured__products__card" key={product.img}>
                 <Link>
                   <img
                     src={product.img}

@@ -12,7 +12,7 @@ function HomeSection() {
             Create your perfect space with our designs.
           </p>
         </div>
-        <div className="home__sections__btns">
+        <div className="home__section__btns">
           <Link className="home__explore__btn btn">Explore products</Link>
           <button className="home__learn__btn btn">
             Learn more <FaArrowDownLong />

@@ -13,7 +13,12 @@ function FeaturedInSection() {
       <div className="featured__in__logos">
         {images.map((image) => {
           return (
-            <img src={image} alt="logo image" className="featured__in__logo" />
+            <img
+              src={image}
+              alt="logo image"
+              className="featured__in__logo"
+              key={image}
+            />
           );
         })}
       </div>

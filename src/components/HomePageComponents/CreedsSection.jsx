@@ -33,7 +33,7 @@ function CreedsSection() {
         <div className="section__container">
           {items.map((item) => {
             return (
-              <article className="creed__article">
+              <article className="creed__article" key={item.title}>
                 <div className="creed__icon__div">
                   <span className="creed__icon__span">{item.svg}</span>
                 </div>
