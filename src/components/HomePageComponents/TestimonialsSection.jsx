@@ -48,6 +48,8 @@ function TestimonialsSection() {
     }
   }
 
+  setInterval(() => handleSlide("right"), 5000);
+
   return (
     <section className="section testimonials__section">
       <div className="section__main testimonials__main">
@@ -68,6 +70,9 @@ function TestimonialsSection() {
             >
               <article className="review__article">
                 <h5 className="review__title">{item.title}</h5>
+                <div className="timer__div__outside">
+                  <div className="timer__div__inside"></div>
+                </div>
                 <p className="review__text">{item.text}</p>
                 <div className="review__author__div">
                   <img
