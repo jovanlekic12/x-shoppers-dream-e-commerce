@@ -41,10 +41,8 @@ function TestimonialsSection() {
   function handleSlide(side) {
     if (side === "left") {
       setMoveIndex(moveIndex === 0 ? reviews.length - 1 : moveIndex - 1);
-      console.log(moveIndex);
     } else if (side === "right") {
       setMoveIndex(moveIndex === reviews.length - 1 ? 0 : moveIndex + 1);
-      console.log(moveIndex);
     }
   }
 

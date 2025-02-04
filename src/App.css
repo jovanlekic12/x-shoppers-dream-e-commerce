@@ -25,15 +25,32 @@ body {
 .logo__div svg {
   font-size: 2.5rem;
 }
-.navbar {
+.header {
   align-items: center;
   display: flex;
   font-size: 1.6rem;
-  justify-content: space-between;
   margin: 0 auto;
   max-width: 120rem;
   padding: 3rem 0;
-  position: sticky;
+  justify-content: space-between;
+}
+
+.main__nav {
+  align-items: center;
+  display: flex;
+  font-size: 1.6rem;
+  padding: 3rem 0;
+  justify-content: space-between;
+  width: 55%;
+}
+
+.x__icon,
+.sidebar__btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: none;
+  color: #444;
+  cursor: pointer;
 }
 
 .links__div {
@@ -475,5 +492,60 @@ a:visited {
   }
   100% {
     width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .links__div {
+    flex-direction: column;
+    align-items: center;
+    font-size: 4rem;
+    justify-content: center;
+    background-color: white;
+  }
+  .main__nav {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    transform: translate(100%, 0);
+    transition: all ease 0.3s;
+  }
+  .sidebar__btn {
+    display: block;
+  }
+  .x__icon {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .main__nav__mobile {
+    transform: translate(0, 0);
+  }
+  .cart__div {
+    font-size: 4rem;
+    margin-top: 5rem;
+  }
+  .cart__div svg {
+    width: 4rem;
+    height: 4rem;
+    align-self: center;
+  }
+  .cart__counter {
+    background: #b05ec4;
+    color: #fff;
+    font-size: 2.5rem;
+    border-radius: 50%;
+    width: 3rem;
+    text-align: center;
+    height: 3.8rem;
   }
 }

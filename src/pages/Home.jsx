@@ -9,15 +9,13 @@ import Navbar from "../components/Navbar";
 function Home() {
   return (
     <>
-      <header className="header">
-        <Navbar></Navbar>
-        <HomeSection></HomeSection>
-        <FeaturedInSection></FeaturedInSection>
-        <FeaturedProductsSection></FeaturedProductsSection>
-        <CreedsSection></CreedsSection>
-        <OperationsSection></OperationsSection>
-        <TestimonialsSection></TestimonialsSection>
-      </header>
+      <Navbar></Navbar>
+      <HomeSection></HomeSection>
+      {/* <FeaturedInSection></FeaturedInSection> */}
+      <FeaturedProductsSection></FeaturedProductsSection>
+      <CreedsSection></CreedsSection>
+      <OperationsSection></OperationsSection>
+      <TestimonialsSection></TestimonialsSection>
     </>
   );
 }
