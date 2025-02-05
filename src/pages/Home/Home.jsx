@@ -9,7 +9,7 @@ import Navbar from "@/components/Navbar";
 function Home() {
   return (
     <>
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
       <HomeSection></HomeSection>
       {/* <FeaturedInSection></FeaturedInSection> */}
       <FeaturedProductsSection></FeaturedProductsSection>
