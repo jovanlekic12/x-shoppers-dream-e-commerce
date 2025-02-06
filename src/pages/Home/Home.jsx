@@ -3,7 +3,7 @@ import FeaturedInSection from "@/pages/Home/FeaturedIn/FeaturedIn";
 import FeaturedProductsSection from "@/pages/Home/FeaturedProducts/FeaturedProducts";
 import HomeSection from "@/pages/Home/HomeSection/HomeSection";
 import OperationsSection from "@/pages/Home/OperationsSection/OperationsSection";
-import TestimonialsSection from "@/pages/Home/TestimonialsSection/TestimonialsSection";
+import TestimonialsSection from "@/pages/Home/TestimonialsSection/Index";
 import Navbar from "@/components/Navbar";
 
 function Home() {

@@ -45,8 +45,7 @@ function TestimonialsSection() {
       setMoveIndex(moveIndex === reviews.length - 1 ? 0 : moveIndex + 1);
     }
   }
-
-  setInterval(() => handleSlide("right"), 5000);
+  // setInterval(() => handleSlide("right"), 5000);
 
   return (
     <section className="section testimonials__section">
