@@ -3,11 +3,16 @@ import { Link } from "react-router";
 import { ImCross } from "react-icons/im";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
+import { useInView } from "react-intersection-observer";
 function Navbar() {
   const [isOpened, setIsOpened] = useState(false);
+  const { ref: sectionRef, inView: isSectionVisible, entry } = useInView();
 
   return (
-    <header className="header">
+    <header
+      ref={sectionRef}
+      className={isSectionVisible ? "header" : "header__sticky"}
+    >
       <div className="logo__div">
         <AiOutlineShopping />
         <span className="logo">X Shoppers Dream</span>

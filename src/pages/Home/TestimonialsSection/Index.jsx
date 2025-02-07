@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
+import { useInView } from "react-intersection-observer";
 function TestimonialsSection() {
   const [moveIndex, setMoveIndex] = useState(0);
+  const { ref: sectionRef, inView: isSectionVisible, entry } = useInView();
 
   const reviews = [
     {
@@ -48,7 +50,14 @@ function TestimonialsSection() {
   // setInterval(() => handleSlide("right"), 5000);
 
   return (
-    <section className="section testimonials__section">
+    <section
+      className={
+        isSectionVisible
+          ? "section testimonials__section"
+          : "section testimonials__section section__animate"
+      }
+      ref={sectionRef}
+    >
       <div className="section__main testimonials__main">
         <header className="section__header">
           <h3 className="section__heading1">Testimonialss</h3>

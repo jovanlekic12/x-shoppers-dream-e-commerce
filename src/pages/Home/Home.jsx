@@ -1,8 +1,8 @@
-import CreedsSection from "@/pages/Home/CreedsSection/CreedsSection";
-import FeaturedInSection from "@/pages/Home/FeaturedIn/FeaturedIn";
-import FeaturedProductsSection from "@/pages/Home/FeaturedProducts/FeaturedProducts";
-import HomeSection from "@/pages/Home/HomeSection/HomeSection";
-import OperationsSection from "@/pages/Home/OperationsSection/OperationsSection";
+import CreedsSection from "@/pages/Home/CreedsSection/Index";
+import FeaturedInSection from "@/pages/Home/FeaturedIn/Index";
+import FeaturedProductsSection from "@/pages/Home/FeaturedProducts/Index";
+import HomeSection from "@/pages/Home/HomeSection/Index";
+import OperationsSection from "@/pages/Home/OperationsSection/Index";
 import TestimonialsSection from "@/pages/Home/TestimonialsSection/Index";
 import Navbar from "@/components/Navbar";
 

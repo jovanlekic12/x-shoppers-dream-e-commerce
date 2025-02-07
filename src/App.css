@@ -35,6 +35,19 @@ body {
   justify-content: space-between;
 }
 
+.header__sticky {
+  position: fixed;
+  top: 0;
+  z-index: 998;
+  padding: 0;
+  align-items: center;
+  display: flex;
+  font-size: 1.6rem;
+  margin: 0 auto;
+  max-width: 120rem;
+  justify-content: space-between;
+}
+
 .main__nav {
   align-items: center;
   display: flex;
@@ -219,7 +232,13 @@ a:visited {
 
 .section {
   border-top: 1px solid #dee2e6;
+  opacity: 1;
   transition: transform 1s, opacity 1s, -webkit-transform 1s;
+}
+
+.section__animate {
+  transform: translateY(20rem);
+  opacity: 0;
 }
 
 .section__main {

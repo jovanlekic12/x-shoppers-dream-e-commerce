@@ -14,7 +14,7 @@ function HomeSection() {
         </div>
         <div className="home__section__btns">
           <Link className="home__explore__btn btn">Explore products</Link>
-          <button className="home__learn__btn btn">
+          <button className="home__learn__btn btn" href="featured_products">
             Learn more <FaArrowDownLong />
           </button>
         </div>

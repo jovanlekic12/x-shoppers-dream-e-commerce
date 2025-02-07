@@ -1,7 +1,10 @@
 import { BsStars } from "react-icons/bs";
 import { IoEyeOutline } from "react-icons/io5";
 import { RiBookLine } from "react-icons/ri";
+import { useInView } from "react-intersection-observer";
 function CreedsSection() {
+  const { ref: sectionRef, inView: isSectionVisible, entry } = useInView();
+
   const items = [
     {
       svg: <BsStars></BsStars>,
@@ -21,7 +24,10 @@ function CreedsSection() {
   ];
 
   return (
-    <section className="section">
+    <section
+      className={isSectionVisible ? "section" : "section section__animate"}
+      ref={sectionRef}
+    >
       <div className="section__main">
         <header className="section__header">
           <h3 className="section__heading1">Creeds we live by</h3>

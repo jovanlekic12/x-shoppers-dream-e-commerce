@@ -20,7 +20,7 @@ function FeaturedProductsSection() {
   ];
 
   return (
-    <section className="section">
+    <section className="section" id="featured_products">
       <div className="section__main">
         <header className="section__header">
           <h3 className="section__heading1">Creeds we live by</h3>

@@ -3,8 +3,11 @@ import { TbHeartHandshake } from "react-icons/tb";
 import { FaCheck } from "react-icons/fa6";
 import { AiOutlineDollar } from "react-icons/ai";
 import { useState } from "react";
+import { useInView } from "react-intersection-observer";
 function OperationsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const { ref: sectionRef, inView: isSectionVisible, entry } = useInView();
 
   const items = [
     {
@@ -34,7 +37,10 @@ function OperationsSection() {
   ];
 
   return (
-    <section className="section">
+    <section
+      className={isSectionVisible ? "section" : "section section__animate"}
+      ref={sectionRef}
+    >
       <div className="section__main operations__main">
         <header className="section__header">
           <h3 className="section__heading1">Operations</h3>
