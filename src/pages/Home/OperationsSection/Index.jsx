@@ -83,14 +83,3 @@ function OperationsSection() {
   );
 }
 export default OperationsSection;
-
-//pages
-//--home
-//----testimonials
-//------header.jsx
-//----hero
-//------image
-//----creeds
-
-//how to setUp path alias in vite
-//import navigation from '#root/components/ui/navigation.jsx

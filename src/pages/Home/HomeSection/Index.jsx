@@ -1,8 +1,8 @@
 import { Link } from "react-router";
 import { FaArrowDownLong } from "react-icons/fa6";
-function HomeSection() {
+function HomeSection({ sectionRef }) {
   return (
-    <section className="home__section">
+    <section className="home__section" ref={sectionRef}>
       <div className="home__section__left">
         <div className="home__section__text">
           <h1 className="heading__primary">

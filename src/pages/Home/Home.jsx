@@ -6,11 +6,10 @@ import OperationsSection from "@/pages/Home/OperationsSection/Index";
 import TestimonialsSection from "@/pages/Home/TestimonialsSection/Index";
 import Navbar from "@/components/Navbar";
 
-function Home() {
+function Home({ sectionRef }) {
   return (
     <>
-      {/* <Navbar></Navbar> */}
-      <HomeSection></HomeSection>
+      <HomeSection sectionRef={sectionRef}></HomeSection>
       {/* <FeaturedInSection></FeaturedInSection> */}
       <FeaturedProductsSection></FeaturedProductsSection>
       <CreedsSection></CreedsSection>
