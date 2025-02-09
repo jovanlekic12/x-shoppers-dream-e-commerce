@@ -20,3 +20,12 @@ function Home({ sectionRef }) {
 }
 
 export default Home;
+
+//Dohvatiti sve proizvode
+//iz proizvoda izvuci jedinstvene kategorije(koje se ne ponavljaju)
+//prvi nacin: preko petlje
+//drugi nacin: pogledaj Set
+
+const array = [1, 1, 2, 2, 3, 3];
+const unique = new Set(array);
+console.log(unique);
