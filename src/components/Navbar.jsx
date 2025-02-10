@@ -17,7 +17,9 @@ function Navbar({ isSectionVisible }) {
         <div className="links__div">
           <Link className="nav__link active__link">Home</Link>
           <Link className="nav__link">About</Link>
-          <Link className="nav__link">Products</Link>
+          <Link className="nav__link" to="products">
+            Products
+          </Link>
         </div>
         <div className="cart__div">
           <div>
