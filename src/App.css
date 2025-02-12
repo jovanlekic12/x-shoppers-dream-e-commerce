@@ -501,6 +501,93 @@ a:visited {
   animation: infinite timerAnimation 5s ease-in;
 }
 
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.sidebar__search,
+.sidebar__select {
+  background-color: #f7eff9;
+  border: transparent;
+  border: 1px solid #b05ec4;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  text-transform: capitalize;
+  color: #444;
+}
+
+.sidebar__div {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__heading {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 0.75rem;
+  padding-top: 1rem;
+  margin-bottom: 0.8rem;
+  color: #444;
+}
+.category__btn {
+  align-self: start;
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  margin: 0.25em 0;
+  padding: 0.25rem 0;
+  text-transform: capitalize;
+}
+
+.colors__div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar__color__btn {
+  border: none;
+  border-radius: 50%;
+  height: 1.4rem;
+  opacity: 0.5;
+  position: relative;
+  width: 1.4rem;
+}
+
+.sidebar__color__btn__all {
+  border: none;
+  color: #444;
+}
+
+.price__heading {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 0.75rem;
+  padding-top: 1rem;
+  color: #b05ec4;
+}
+
+.sidebar__shipping__div {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+
+.sidebar__clear__btn {
+  background-color: #e81616;
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  width: 50%;
+}
+
 @keyframes timerAnimation {
   0% {
     width: 0%;
