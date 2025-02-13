@@ -1,38 +1,15 @@
+import Categories from "@/pages/Products/Sidebar/Categories/Index";
+import Companies from "./Companies/Index";
+import Colors from "@/pages/Products/Sidebar/Colors/Index";
 function Sidebar(props) {
   const { colors, companies, categories } = props;
 
   return (
     <aside className="sidebar">
-      <input type="text" className="sidebar__search" />
-      <div className="sidebar__div">
-        <h5 className="sidebar__heading">Category</h5>
-        {categories.map((category) => {
-          return <button className="category__btn">{category}</button>;
-        })}
-      </div>
-      <div className="sidebar__div">
-        <h5 className="sidebar__heading">Company</h5>
-        <select className="sidebar__select">
-          <option value="all">All</option>
-          {companies.map((company) => {
-            return <option value={company}>{company}</option>;
-          })}
-        </select>
-      </div>
-      <div className="sidebar__div">
-        <h5 className="sidebar__heading">Color</h5>
-        <div className="colors__div">
-          <button className="sidebar__color__btn__all">All</button>
-          {colors.map((color) => {
-            return (
-              <button
-                className="sidebar__color__btn"
-                style={{ backgroundColor: `${color}` }}
-              ></button>
-            );
-          })}
-        </div>
-      </div>
+      <input type="text" className="sidebar__search" placeholder="Search" />
+      <Categories categories={categories} />
+      <Companies companies={companies} />
+      <Colors colors={colors} />
       <div className="sidebar__div">
         <h5 className="sidebar__heading">Price</h5>
 

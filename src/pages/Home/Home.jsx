@@ -4,7 +4,6 @@ import FeaturedProductsSection from "@/pages/Home/FeaturedProducts/Index";
 import HomeSection from "@/pages/Home/HomeSection/Index";
 import OperationsSection from "@/pages/Home/OperationsSection/Index";
 import TestimonialsSection from "@/pages/Home/TestimonialsSection/Index";
-import Navbar from "@/components/Navbar";
 
 function Home({ sectionRef }) {
   return (
@@ -20,12 +19,3 @@ function Home({ sectionRef }) {
 }
 
 export default Home;
-
-//Dohvatiti sve proizvode
-//iz proizvoda izvuci jedinstvene kategorije(koje se ne ponavljaju)
-//prvi nacin: preko petlje
-//drugi nacin: pogledaj Set
-
-const array = [1, 1, 2, 2, 3, 3];
-const unique = new Set(array);
-console.log(unique);

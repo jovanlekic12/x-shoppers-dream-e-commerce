@@ -25,15 +25,6 @@ body {
 .logo__div svg {
   font-size: 2.5rem;
 }
-.header {
-  align-items: center;
-  display: flex;
-  font-size: 1.6rem;
-  margin: 0 auto;
-  max-width: 120rem;
-  padding: 3rem 0;
-  justify-content: space-between;
-}
 
 .header__sticky {
   position: sticky;
@@ -44,6 +35,15 @@ body {
   opacity: 0.9;
 }
 
+.inner__header {
+  align-items: center;
+  display: flex;
+  font-size: 1.6rem;
+  margin: 0 auto;
+  max-width: 120rem;
+  justify-content: space-between;
+}
+
 .main__nav {
   align-items: center;
   display: flex;
@@ -51,6 +51,7 @@ body {
   padding: 3rem 0;
   justify-content: space-between;
   width: 55%;
+  max-width: 120rem;
 }
 
 .x__icon,
@@ -73,10 +74,6 @@ a:active,
 a:visited {
   color: #444;
   text-decoration: none;
-}
-
-.active__link {
-  border-bottom: 1px solid #b05ec4;
 }
 
 .cart__div {
@@ -553,11 +550,19 @@ a:visited {
 }
 
 .sidebar__color__btn {
+  border: 0;
+  height: 1.4rem;
+  opacity: 0.5;
+  background-color: transparent;
+  padding-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar__color__btn__div {
   border: none;
   border-radius: 50%;
   height: 1.4rem;
-  opacity: 0.5;
-  position: relative;
   width: 1.4rem;
 }
 
@@ -565,7 +570,9 @@ a:visited {
   border: none;
   color: #444;
 }
-
+.active__link {
+  border-bottom: 1px solid #b05ec4;
+}
 .price__heading {
   font-size: 1.4rem;
   font-weight: 500;
@@ -573,7 +580,12 @@ a:visited {
   padding-top: 1rem;
   color: #b05ec4;
 }
-
+.product__card__price {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 0.75rem;
+  color: #b05ec4;
+}
 .sidebar__shipping__div {
   align-items: center;
   display: flex;
@@ -586,6 +598,51 @@ a:visited {
   font-size: 1.4rem;
   padding: 1rem 2rem;
   width: 50%;
+}
+
+.products__page__section {
+  padding-bottom: 9.6rem;
+  padding-top: 5.2rem;
+}
+
+.products__page__div {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  position: relative;
+  max-width: 120rem;
+  margin: 0 auto;
+  gap: 5rem;
+}
+
+.product__card__img {
+  border-radius: 0.25rem;
+  display: block;
+  margin-bottom: 0.6rem;
+  object-fit: cover;
+  width: 100%;
+  height: 17.5rem;
+}
+
+.products__section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.product__name__div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product__card__name {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 0.75rem;
+  padding-top: 1rem;
+  margin-bottom: 0.8rem;
+  color: #444;
+  text-transform: capitalize;
 }
 
 @keyframes timerAnimation {

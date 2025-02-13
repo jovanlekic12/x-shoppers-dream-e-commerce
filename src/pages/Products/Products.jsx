@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Sidebar from "@/pages/Products/Sidebar/Sidebar";
+import ProductsSection from "./ProductsSection/ProductsSection";
 
 function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -22,35 +23,39 @@ function ProductsPage() {
   }, []);
 
   useEffect(() => {
-    const productCategories = products.map((product) => {
+    let productCategories = products.map((product) => {
       return product.category;
     });
-    const uniqueCategories = [...new Set(productCategories)];
-    const productCompanies = products.map((product) => {
+    let uniqueCategories = [...new Set(productCategories)];
+    uniqueCategories.unshift("all");
+    let productCompanies = products.map((product) => {
       return product.company;
     });
-    const uniqueCompanies = [...new Set(productCompanies)];
-    const productColors = products.map((product) => {
+    let uniqueCompanies = [...new Set(productCompanies)];
+    uniqueCompanies.unshift("all");
+    let productColors = products.map((product) => {
       return product.colors;
     });
-    const uniqueColors = Array.from(
-      new Set(Object.values(productColors).flat())
-    );
+    let uniqueColors = Array.from(new Set(Object.values(productColors).flat()));
+
     setColors(uniqueColors);
     setCategories(uniqueCategories);
     setCompanies(uniqueCompanies);
   }, [products]);
 
-  console.log(colors);
+  console.log(products);
 
   return (
-    <>
-      <Sidebar
-        colors={colors}
-        companies={companies}
-        categories={categories}
-      ></Sidebar>
-    </>
+    <section className="products__page__section">
+      <div className="products__page__div">
+        <Sidebar
+          colors={colors}
+          companies={companies}
+          categories={categories}
+        ></Sidebar>
+        <ProductsSection products={products}></ProductsSection>
+      </div>
+    </section>
   );
 }
 export default ProductsPage;

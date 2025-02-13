@@ -13,10 +13,12 @@ function HomeSection({ sectionRef }) {
           </p>
         </div>
         <div className="home__section__btns">
-          <Link className="home__explore__btn btn">Explore products</Link>
-          <button className="home__learn__btn btn" href="featured_products">
+          <Link className="home__explore__btn btn" to="/products">
+            Explore products
+          </Link>
+          <a className="home__learn__btn btn" href="#featured__products">
             Learn more <FaArrowDownLong />
-          </button>
+          </a>
         </div>
       </div>
       <div className="home__section__right">
