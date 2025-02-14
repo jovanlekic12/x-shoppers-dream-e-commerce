@@ -4,6 +4,7 @@ import ProductsSection from "./ProductsSection/ProductsSection";
 
 function ProductsPage() {
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [colors, setColors] = useState([]);
@@ -21,6 +22,14 @@ function ProductsPage() {
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  function handleFilter(category) {
+    const items =
+      category === "all"
+        ? products
+        : products.filter((product) => product.category === category);
+    setFilteredProducts(items);
+  }
 
   useEffect(() => {
     let productCategories = products.map((product) => {
@@ -41,6 +50,7 @@ function ProductsPage() {
     setColors(uniqueColors);
     setCategories(uniqueCategories);
     setCompanies(uniqueCompanies);
+    setFilteredProducts(products);
   }, [products]);
 
   console.log(products);
@@ -49,11 +59,12 @@ function ProductsPage() {
     <section className="products__page__section">
       <div className="products__page__div">
         <Sidebar
+          handleFilter={handleFilter}
           colors={colors}
           companies={companies}
           categories={categories}
         ></Sidebar>
-        <ProductsSection products={products}></ProductsSection>
+        <ProductsSection products={filteredProducts}></ProductsSection>
       </div>
     </section>
   );

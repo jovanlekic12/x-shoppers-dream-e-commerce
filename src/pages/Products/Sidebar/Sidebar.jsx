@@ -2,12 +2,12 @@ import Categories from "@/pages/Products/Sidebar/Categories/Index";
 import Companies from "./Companies/Index";
 import Colors from "@/pages/Products/Sidebar/Colors/Index";
 function Sidebar(props) {
-  const { colors, companies, categories } = props;
+  const { colors, companies, categories, handleFilter } = props;
 
   return (
     <aside className="sidebar">
       <input type="text" className="sidebar__search" placeholder="Search" />
-      <Categories categories={categories} />
+      <Categories categories={categories} handleFilter={handleFilter} />
       <Companies companies={companies} />
       <Colors colors={colors} />
       <div className="sidebar__div">

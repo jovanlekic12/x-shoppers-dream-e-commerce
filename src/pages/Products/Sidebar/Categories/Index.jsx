@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Categories(props) {
-  const { categories } = props;
+  const { categories, handleFilter } = props;
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className="sidebar__div">
@@ -14,6 +14,7 @@ function Categories(props) {
                 ? "category__btn active__link"
                 : "category__btn"
             }
+            onClick={() => handleFilter(category)}
           >
             {category}
           </button>
