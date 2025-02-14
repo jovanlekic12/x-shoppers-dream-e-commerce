@@ -1,6 +1,8 @@
 import Categories from "@/pages/Products/Sidebar/Categories/Index";
 import Companies from "./Companies/Index";
 import Colors from "@/pages/Products/Sidebar/Colors/Index";
+import Price from "@/pages/Products/Sidebar/Price/Index";
+import Shipping from "@/pages/Products/Sidebar/Shipping/Index";
 function Sidebar(props) {
   const { colors, companies, categories, handleFilter } = props;
 
@@ -10,16 +12,8 @@ function Sidebar(props) {
       <Categories categories={categories} handleFilter={handleFilter} />
       <Companies companies={companies} />
       <Colors colors={colors} />
-      <div className="sidebar__div">
-        <h5 className="sidebar__heading">Price</h5>
-
-        <h5 className="price__heading">4</h5>
-        <input type="range" />
-      </div>
-      <div className="sidebar__shipping__div">
-        <h5 className="sidebar__heading">Free Shipping</h5>
-        <input type="checkbox" className="sidebar__checkbox" />
-      </div>
+      <Price />
+      <Shipping />
       <button className="sidebar__clear__btn btn">Clear filters</button>
     </aside>
   );
