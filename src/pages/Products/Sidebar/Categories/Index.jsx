@@ -14,7 +14,10 @@ function Categories(props) {
                 ? "category__btn active__link"
                 : "category__btn"
             }
-            onClick={() => handleFilter(category)}
+            onClick={() => {
+              handleFilter(category);
+              setActiveIndex(index);
+            }}
           >
             {category}
           </button>
