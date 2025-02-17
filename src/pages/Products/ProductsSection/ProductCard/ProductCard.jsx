@@ -1,8 +1,6 @@
 function ProductCard(props) {
   const { name, price, image } = props;
 
-  console.log(price);
-
   return (
     <article className="product__card">
       <a href="">

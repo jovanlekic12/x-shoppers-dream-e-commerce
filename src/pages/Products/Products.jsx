@@ -8,6 +8,14 @@ function ProductsPage() {
   const [categories, setCategories] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [colors, setColors] = useState([]);
+
+  const [activeFilters, setActiveFilters] = useState({
+    category: null,
+    company: null,
+    color: null,
+    freeShipping: false,
+  });
+
   const url = "https://www.course-api.com/react-store-products";
   async function fetchProducts() {
     try {
@@ -23,13 +31,26 @@ function ProductsPage() {
     fetchProducts();
   }, []);
 
-  function handleFilter(category) {
-    const items =
-      category === "all"
-        ? products
-        : products.filter((product) => product.category === category);
-    setFilteredProducts(items);
+  function handleFilter() {
+    if (activeFilters.category) {
+      setFilteredProducts(() =>
+        products.filter((item) => item.category === activeFilters.category)
+      );
+    } else {
+      setFilteredProducts(products);
+    }
+    if (activeFilters.company) {
+      setFilteredProducts(() => {
+        products.filter((item) => item.company === activeFilters.company);
+      });
+    } else {
+      setFilteredProducts(products);
+    }
   }
+
+  useEffect(() => {
+    handleFilter();
+  }, [activeFilters]);
 
   useEffect(() => {
     let productCategories = products.map((product) => {
@@ -53,7 +74,7 @@ function ProductsPage() {
     setFilteredProducts(products);
   }, [products]);
 
-  console.log(products);
+  console.log(filteredProducts);
 
   return (
     <section className="products__page__section">
@@ -63,6 +84,7 @@ function ProductsPage() {
           colors={colors}
           companies={companies}
           categories={categories}
+          setActiveFilters={setActiveFilters}
         ></Sidebar>
         <ProductsSection products={filteredProducts}></ProductsSection>
       </div>
@@ -70,3 +92,7 @@ function ProductsPage() {
   );
 }
 export default ProductsPage;
+
+// if(activeFilters.company) {
+//filteruj za kompani
+//}
