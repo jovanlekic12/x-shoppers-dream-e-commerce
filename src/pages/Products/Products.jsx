@@ -32,17 +32,18 @@ function ProductsPage() {
   }, []);
 
   function handleFilter() {
-    if (activeFilters.category) {
-      setFilteredProducts(() =>
-        products.filter((item) => item.category === activeFilters.category)
-      );
-    } else {
-      setFilteredProducts(products);
-    }
-    if (activeFilters.company) {
+    // if (activeFilters.category) {
+    //   setFilteredProducts(() =>
+    //     products.filter((item) => item.category === activeFilters.category)
+    //   );
+    //   return;
+    if (activeFilters.color) {
       setFilteredProducts(() => {
-        products.filter((item) => item.company === activeFilters.company);
+        products.filter((item) =>
+          item.colors.some((color) => color === activeFilters.color)
+        );
       });
+      return;
     } else {
       setFilteredProducts(products);
     }
@@ -74,7 +75,7 @@ function ProductsPage() {
     setFilteredProducts(products);
   }, [products]);
 
-  console.log(filteredProducts);
+  console.log(products, activeFilters);
 
   return (
     <section className="products__page__section">

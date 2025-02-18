@@ -16,7 +16,7 @@ function Sidebar(props) {
         setActiveFilters={setActiveFilters}
       />
       <Companies companies={companies} setActiveFilters={setActiveFilters} />
-      <Colors colors={colors} />
+      <Colors colors={colors} setActiveFilters={setActiveFilters} />
       <Price />
       <Shipping />
       <button className="sidebar__clear__btn btn">Clear filters</button>

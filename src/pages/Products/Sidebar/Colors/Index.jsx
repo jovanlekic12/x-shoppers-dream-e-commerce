@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Colors(props) {
-  const { colors } = props;
+  const { colors, setActiveFilters } = props;
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -14,7 +14,12 @@ function Colors(props) {
               ? "sidebar__color__btn__all active__link"
               : "sidebar__color__btn__all"
           }
-          onClick={() => setActiveIndex(0)}
+          onClick={() => {
+            setActiveIndex(0);
+            setActiveFilters((prev) => {
+              return { ...prev, color: null };
+            });
+          }}
         >
           All
         </button>
@@ -28,6 +33,10 @@ function Colors(props) {
               }
               onClick={() => {
                 setActiveIndex(index + 1);
+                setActiveFilters((prev) => {
+                  return { ...prev, color: color };
+                });
+                setActiveIndex(index);
               }}
             >
               <div
