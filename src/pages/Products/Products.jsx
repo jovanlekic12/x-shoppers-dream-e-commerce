@@ -32,15 +32,17 @@ function ProductsPage() {
   }, []);
 
   function handleFilter() {
-    // if (activeFilters.category) {
-    //   setFilteredProducts(() =>
-    //     products.filter((item) => item.category === activeFilters.category)
-    //   );
-    //   return;
-    if (activeFilters.color) {
+    if (activeFilters.category) {
+      setFilteredProducts(() =>
+        products.filter((item) => item.category === activeFilters.category)
+      );
+      return;
+    } else if (activeFilters.color) {
       setFilteredProducts(() => {
-        products.filter((item) =>
-          item.colors.some((color) => color === activeFilters.color)
+        products.filter(
+          (item) =>
+            item.colors.some((color) => color === activeFilters.color) ||
+            item.color === activeFilters.color
         );
       });
       return;
