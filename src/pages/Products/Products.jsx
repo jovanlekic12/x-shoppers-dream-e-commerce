@@ -33,19 +33,15 @@ function ProductsPage() {
 
   function handleFilter() {
     if (activeFilters.category) {
-      setFilteredProducts(() =>
-        products.filter((item) => item.category === activeFilters.category)
+      const items = products.filter(
+        (item) => item.category === activeFilters.category
       );
-      return;
+      setFilteredProducts(items);
     } else if (activeFilters.color) {
-      setFilteredProducts(() => {
-        products.filter(
-          (item) =>
-            item.colors.some((color) => color === activeFilters.color) ||
-            item.color === activeFilters.color
-        );
-      });
-      return;
+      const items = products.filter((item) =>
+        item.colors.includes(activeFilters.color)
+      );
+      setFilteredProducts(items);
     } else {
       setFilteredProducts(products);
     }
@@ -77,7 +73,7 @@ function ProductsPage() {
     setFilteredProducts(products);
   }, [products]);
 
-  console.log(products, activeFilters);
+  console.log(filteredProducts, activeFilters);
 
   return (
     <section className="products__page__section">
