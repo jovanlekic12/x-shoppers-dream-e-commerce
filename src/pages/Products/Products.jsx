@@ -37,13 +37,12 @@ function ProductsPage() {
         (item) => item.category === activeFilters.category
       );
       setFilteredProducts(items);
-    } else if (activeFilters.color) {
+    }
+    if (activeFilters.color) {
       const items = products.filter((item) =>
         item.colors.includes(activeFilters.color)
       );
       setFilteredProducts(items);
-    } else {
-      setFilteredProducts(products);
     }
   }
 
