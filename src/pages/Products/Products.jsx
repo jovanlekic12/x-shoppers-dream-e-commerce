@@ -8,11 +8,12 @@ function ProductsPage() {
   const [categories, setCategories] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [colors, setColors] = useState([]);
-
-  const [activeFilters, setActiveFilters] = useState({
-    category: null,
-    company: null,
-    color: null,
+  const [filters, setFilters] = useState({
+    search: "",
+    category: "all",
+    company: "all",
+    color: "all",
+    price: 3999,
     freeShipping: false,
   });
 
@@ -31,24 +32,47 @@ function ProductsPage() {
     fetchProducts();
   }, []);
 
-  function handleFilter() {
-    if (activeFilters.category) {
-      const items = products.filter(
-        (item) => item.category === activeFilters.category
-      );
-      setFilteredProducts(items);
-    }
-    if (activeFilters.color) {
-      const items = products.filter((item) =>
-        item.colors.includes(activeFilters.color)
-      );
-      setFilteredProducts(items);
-    }
-  }
-
   useEffect(() => {
-    handleFilter();
-  }, [activeFilters]);
+    let updatedProducts = [...products];
+
+    if (filters.search) {
+      updatedProducts = updatedProducts.filter((product) =>
+        product.name.toLowerCase().includes(filters.search.toLowerCase())
+      );
+    }
+
+    if (filters.category !== "all") {
+      updatedProducts = updatedProducts.filter(
+        (product) => product.category === filters.category
+      );
+    }
+
+    if (filters.company !== "all") {
+      updatedProducts = updatedProducts.filter(
+        (product) => product.company === filters.company
+      );
+    }
+
+    if (filters.color !== "all") {
+      updatedProducts = updatedProducts.filter((product) =>
+        product.colors.includes(filters.color)
+      );
+    }
+
+    updatedProducts = updatedProducts.filter(
+      (product) => product.price / 100 <= filters.price
+    );
+
+    if (filters.freeShipping) {
+      updatedProducts = updatedProducts.filter(
+        (product) => product.shipping === true
+      );
+    }
+
+    setFilteredProducts(updatedProducts);
+  }, [filters, products]);
+
+  console.log(filters);
 
   useEffect(() => {
     let productCategories = products.map((product) => {
@@ -72,17 +96,15 @@ function ProductsPage() {
     setFilteredProducts(products);
   }, [products]);
 
-  console.log(filteredProducts, activeFilters);
-
   return (
     <section className="products__page__section">
       <div className="products__page__div">
         <Sidebar
-          handleFilter={handleFilter}
           colors={colors}
           companies={companies}
           categories={categories}
-          setActiveFilters={setActiveFilters}
+          setFilters={setFilters}
+          filters={filters}
         ></Sidebar>
         <ProductsSection products={filteredProducts}></ProductsSection>
       </div>
@@ -90,7 +112,3 @@ function ProductsPage() {
   );
 }
 export default ProductsPage;
-
-// if(activeFilters.company) {
-//filteruj za kompani
-//}

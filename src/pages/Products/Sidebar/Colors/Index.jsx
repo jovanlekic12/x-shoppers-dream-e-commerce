@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Colors(props) {
-  const { colors, setActiveFilters } = props;
+  const { colors, setFilters, filters } = props;
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -16,9 +16,7 @@ function Colors(props) {
           }
           onClick={() => {
             setActiveIndex(0);
-            setActiveFilters((prev) => {
-              return { ...prev, color: null };
-            });
+            setFilters((prev) => ({ ...prev, color: "all" }));
           }}
         >
           All
@@ -33,9 +31,7 @@ function Colors(props) {
               }
               onClick={() => {
                 setActiveIndex(index + 1);
-                setActiveFilters((prev) => {
-                  return { ...prev, color: color };
-                });
+                setFilters((prev) => ({ ...prev, color: color }));
                 setActiveIndex(index);
               }}
             >

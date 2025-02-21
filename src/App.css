@@ -574,10 +574,11 @@ a:visited {
   border-bottom: 1px solid #b05ec4;
 }
 .price__heading {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 500;
   line-height: 0.75rem;
   padding-top: 1rem;
+  padding-bottom: 0.5rem;
   color: #b05ec4;
 }
 .product__card__price {
