@@ -4,10 +4,19 @@ import ProductsSection from "./ProductsSection/ProductsSection";
 
 function ProductsPage() {
   const [products, setProducts] = useState([]);
+
+  const colors = Array.from(
+    new Set(Object.values(products.map((prod) => prod.colors)).flat())
+  );
+
+  const categories = Array.from(
+    new Set(["all", ...products.map((prod) => prod.category)])
+  );
+
+  const companies = Array.from(
+    new Set(["all", ...products.map((prod) => prod.company)])
+  );
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [companies, setCompanies] = useState([]);
-  const [colors, setColors] = useState([]);
   const [filters, setFilters] = useState({
     search: "",
     category: "all",
@@ -70,29 +79,11 @@ function ProductsPage() {
     }
 
     setFilteredProducts(updatedProducts);
-  }, [filters, products]);
+  }, [filters]);
 
-  console.log(filters);
+  console.log(products);
 
   useEffect(() => {
-    let productCategories = products.map((product) => {
-      return product.category;
-    });
-    let uniqueCategories = [...new Set(productCategories)];
-    uniqueCategories.unshift("all");
-    let productCompanies = products.map((product) => {
-      return product.company;
-    });
-    let uniqueCompanies = [...new Set(productCompanies)];
-    uniqueCompanies.unshift("all");
-    let productColors = products.map((product) => {
-      return product.colors;
-    });
-    let uniqueColors = Array.from(new Set(Object.values(productColors).flat()));
-
-    setColors(uniqueColors);
-    setCategories(uniqueCategories);
-    setCompanies(uniqueCompanies);
     setFilteredProducts(products);
   }, [products]);
 

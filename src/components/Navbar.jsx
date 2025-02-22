@@ -6,7 +6,7 @@ import { useState } from "react";
 function Navbar({ isSectionVisible }) {
   const [isOpened, setIsOpened] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const links = ["Home", "About", "Products"];
+  const links = ["home", "about", "products"];
 
   return (
     <header className={isSectionVisible ? "header" : "header header__sticky"}>
@@ -26,7 +26,7 @@ function Navbar({ isSectionVisible }) {
                       ? "nav__link active__link"
                       : "nav__link"
                   }
-                  to={link === "Home" ? "/" : link}
+                  to={link === "home" ? "/" : link}
                 >
                   {link}
                 </Link>

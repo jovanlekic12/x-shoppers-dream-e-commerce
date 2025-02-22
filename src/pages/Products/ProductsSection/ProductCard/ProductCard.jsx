@@ -1,11 +1,13 @@
+import { Link } from "react-router";
+
 function ProductCard(props) {
-  const { name, price, image } = props;
+  const { name, price, image, id } = props;
 
   return (
     <article className="product__card">
-      <a href="">
+      <Link to={id}>
         <img src={image} alt="" className="product__card__img" />
-      </a>
+      </Link>
       <div className="product__name__div">
         <h5 className="product__card__name">{name}</h5>
         <span className="product__card__price">
