@@ -701,6 +701,42 @@ a:visited {
   width: 10rem;
 }
 
+.single__product__heading {
+  font-size: 3.6rem;
+  text-transform: capitalize;
+  color: #444;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.rating__div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rating,
+.star {
+  color: #e59819;
+  font-size: 1.4rem;
+}
+
+.rating__reviews,
+.single__product__description {
+  color: #666;
+  font-size: 1.5rem;
+  line-height: 1.9;
+}
+
+.single__product__price {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 0.75rem;
+  padding-top: 1rem;
+  color: #b05ec4;
+  margin-bottom: 2.2rem;
+}
+
 @keyframes timerAnimation {
   0% {
     width: 0%;

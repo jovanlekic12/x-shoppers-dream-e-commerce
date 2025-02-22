@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { FaArrowDownLong } from "react-icons/fa6";
-
+import { BsStarFill } from "react-icons/bs";
 function SingleProduct(props) {
   let params = useParams();
 
@@ -52,6 +52,43 @@ function SingleProduct(props) {
                   );
                 })}
             </div>
+          </div>
+          <div className="single__product__text__area">
+            <h2 className="single__product__heading">{product.name}</h2>
+            <div className="rating__div">
+              <span className="rating">{product.stars}</span>
+              <div className="stars__div">
+                <span className="star">
+                  <BsStarFill />
+                </span>
+                <span className="star">
+                  <BsStarFill />
+                </span>{" "}
+                <span className="star">
+                  <BsStarFill />
+                </span>{" "}
+                <span className="star">
+                  <BsStarFill />
+                </span>{" "}
+                <span className="star">
+                  <BsStarFill />
+                </span>
+              </div>
+              <p className="rating__reviews">
+                ({product.reviews} customers ratings)
+              </p>
+            </div>
+            <p className="single__product__price">
+              $
+              {new Intl.NumberFormat("en-US", {
+                style: "decimal",
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }).format(product.price / 100)}
+            </p>
+            <p className="single__product__description">
+              {product.description}
+            </p>
           </div>
         </article>
       </div>
