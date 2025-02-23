@@ -55,7 +55,9 @@ function FeaturedProductsSection() {
             );
           })}
         </div>
-        <Link className="all__products__btn btn">All products</Link>
+        <Link className="all__products__btn btn" to="products">
+          All products
+        </Link>
       </div>
     </section>
   );

@@ -6,7 +6,8 @@ function SingleProduct(props) {
   let params = useParams();
 
   const [product, setProduct] = useState();
-
+  const [mainPhoto, setMainPhoto] = useState();
+  const [activeIndex, setActiveIndex] = useState(0);
   const url = "https://www.course-api.com/react-store-single-product?id=";
 
   async function fetchData() {
@@ -23,7 +24,9 @@ function SingleProduct(props) {
     fetchData();
   }, []);
 
-  // console.log(product.images[0].url);
+  useEffect(() => {
+    if (product) setMainPhoto(product.images[0].url);
+  }, [product]);
 
   return (
     <section className="single__product__section">
@@ -31,66 +34,119 @@ function SingleProduct(props) {
         <Link to="/products" className="back__link">
           Back to products <FaArrowDownLong />
         </Link>
-        <article className="single__product__article">
-          <div className="single__product__img__div">
-            {product && (
-              <img
-                src={product.images[0].url}
-                alt="product photo"
-                className="single__product__main__img"
-              />
-            )}
-            <div className="single__product__images__div">
-              {product &&
-                product.images.map((img) => {
+        {product && (
+          <article className="single__product__article">
+            <div className="single__product__img__div">
+              {mainPhoto && (
+                <img
+                  src={mainPhoto}
+                  alt="product photo"
+                  className="single__product__main__img"
+                />
+              )}
+              <div className="single__product__images__div">
+                {product.images.map((img) => {
                   return (
                     <img
                       src={img.url}
                       alt="product photo"
-                      className="single__product__small__img"
+                      className={
+                        mainPhoto === img.url
+                          ? "single__product__small__img active__img"
+                          : "single__product__small__img"
+                      }
+                      onClick={() => setMainPhoto(img.url)}
                     />
                   );
                 })}
-            </div>
-          </div>
-          <div className="single__product__text__area">
-            <h2 className="single__product__heading">{product.name}</h2>
-            <div className="rating__div">
-              <span className="rating">{product.stars}</span>
-              <div className="stars__div">
-                <span className="star">
-                  <BsStarFill />
-                </span>
-                <span className="star">
-                  <BsStarFill />
-                </span>{" "}
-                <span className="star">
-                  <BsStarFill />
-                </span>{" "}
-                <span className="star">
-                  <BsStarFill />
-                </span>{" "}
-                <span className="star">
-                  <BsStarFill />
-                </span>
               </div>
-              <p className="rating__reviews">
-                ({product.reviews} customers ratings)
-              </p>
             </div>
-            <p className="single__product__price">
-              $
-              {new Intl.NumberFormat("en-US", {
-                style: "decimal",
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              }).format(product.price / 100)}
-            </p>
-            <p className="single__product__description">
-              {product.description}
-            </p>
-          </div>
-        </article>
+            <div className="single__product__text__area">
+              <h2 className="single__product__heading">{product.name}</h2>
+              <div className="rating__div">
+                <span className="rating">{product.stars}</span>
+                <div className="stars__div">
+                  <span className="star">
+                    <BsStarFill />
+                  </span>
+                  <span className="star">
+                    <BsStarFill />
+                  </span>{" "}
+                  <span className="star">
+                    <BsStarFill />
+                  </span>{" "}
+                  <span className="star">
+                    <BsStarFill />
+                  </span>{" "}
+                  <span className="star">
+                    <BsStarFill />
+                  </span>
+                </div>
+                <p className="rating__reviews">
+                  ({product.reviews} customers ratings)
+                </p>
+              </div>
+              <p className="single__product__price">
+                $
+                {new Intl.NumberFormat("en-US", {
+                  style: "decimal",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }).format(product.price / 100)}
+              </p>
+              <p className="single__product__description">
+                {product.description}
+              </p>
+              <div className="single__product__infos">
+                <div className="single__product__info__div">
+                  <h5 className="single__product__info__heading">Available:</h5>
+                  <span className="single__product__info__span">
+                    {product.stock}
+                  </span>
+                </div>
+                <div className="single__product__info__div">
+                  <h5 className="single__product__info__heading">SKU:</h5>
+                  <span className="single__product__info__span">
+                    {product.id}
+                  </span>
+                </div>
+                <div className="single__product__info__div">
+                  <h5 className="single__product__info__heading">Available:</h5>
+                  <span className="single__product__info__span">
+                    {product.company}
+                  </span>
+                </div>
+              </div>
+              {product.stock > 0 && (
+                <div className="single__product__stock__div">
+                  <div className="single__product__color__div">
+                    <h5 className="single__product__info__heading">Colors:</h5>
+                    <div className="single__product__colors__div">
+                      {product.colors.map((color) => {
+                        return (
+                          <button className={"single__product__color__btn"}>
+                            <div
+                              className="sidebar__color__btn__div"
+                              style={{ backgroundColor: `${color}` }}
+                            ></div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <div className="single__product__amount__div">
+                    <button className="amount__btn btn">-</button>
+                    <p className="amount__counter">1</p>
+                    <button className="amount__btn btn">+</button>
+                  </div>
+                  <button className="add__to__cart__btn btn">
+                    Add to cart
+                  </button>
+                </div>
+              )}
+            </div>
+          </article>
+        )}
       </div>
     </section>
   );

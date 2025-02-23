@@ -97,7 +97,10 @@ function ProductsPage() {
           setFilters={setFilters}
           filters={filters}
         ></Sidebar>
-        <ProductsSection products={filteredProducts}></ProductsSection>
+        <ProductsSection
+          setFilteredProducts={setFilteredProducts}
+          products={filteredProducts}
+        ></ProductsSection>
       </div>
     </section>
   );
