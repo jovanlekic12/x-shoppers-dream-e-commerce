@@ -36,7 +36,7 @@ function Navbar({ isSectionVisible }) {
           <div className="cart__div">
             <div>
               <span>Cart</span>
-              <Link className="cart__link">
+              <Link className="cart__link" to="cart">
                 <AiOutlineShopping />
               </Link>
             </div>

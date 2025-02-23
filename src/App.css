@@ -691,7 +691,8 @@ a:visited {
   padding-top: 5.2rem;
 }
 
-.single__product__container {
+.single__product__container,
+.cart__container {
   margin: 0 auto;
   max-width: 120rem;
 }

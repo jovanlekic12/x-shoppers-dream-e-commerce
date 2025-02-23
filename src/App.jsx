@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import { useInView } from "react-intersection-observer";
 import ProductsPage from "./pages/Products/Products";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
+import CartPage from "./pages/Cart/Cart";
 function App() {
   const { ref: sectionRef, inView: isSectionVisible, entry } = useInView();
 
@@ -18,6 +19,7 @@ function App() {
           <Route index element={<Home sectionRef={sectionRef} />} />
           <Route path="products" element={<ProductsPage />} />
           <Route path="products/:id" element={<SingleProduct />} />
+          <Route path="cart" element={<CartPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
