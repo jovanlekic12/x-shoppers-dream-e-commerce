@@ -3,10 +3,13 @@ import { Link } from "react-router";
 import { ImCross } from "react-icons/im";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
+import { selectTotalAmount } from "@/features/cart/cartSlice";
+import { useSelector } from "react-redux";
 function Navbar({ isSectionVisible }) {
   const [isOpened, setIsOpened] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const links = ["home", "about", "products"];
+  const totalAmount = useSelector(selectTotalAmount);
 
   return (
     <header className={isSectionVisible ? "header" : "header header__sticky"}>
@@ -36,11 +39,11 @@ function Navbar({ isSectionVisible }) {
           <div className="cart__div">
             <div>
               <span>Cart</span>
-              <Link className="cart__link" to="cart">
+              <Link className="cart__link" to="/cart">
                 <AiOutlineShopping />
               </Link>
             </div>
-            <span className="cart__counter">0</span>
+            <span className="cart__counter">{totalAmount}</span>
           </div>
           <ImCross
             className="x__icon"

@@ -3,18 +3,21 @@ import { Link } from "react-router";
 function FeaturedProductsSection() {
   const products = [
     {
+      id: "recs5BSVU3qQrOj4E",
       img: "https://www.course-api.com/images/store/product-15.jpeg",
       name: "Sofa Set",
       price: 1299.99,
     },
     {
+      id: "recroK1VD8qVdMP5H",
       img: "https://www.course-api.com/images/store/product-16.jpeg",
       name: "Suede Armchair",
       price: 159.99,
     },
     {
+      id: "rec7JInsuCEHgmaGe",
       img: "https://www.course-api.com/images/store/product-17.jpeg",
-      name: "Sofa Set",
+      name: "Utopia Sofa",
       price: 799.99,
     },
   ];
@@ -33,7 +36,7 @@ function FeaturedProductsSection() {
           {products.map((product) => {
             return (
               <article className="featured__products__card" key={product.img}>
-                <Link>
+                <Link to={`/products/${product.id}`}>
                   <img
                     src={product.img}
                     alt="product image"

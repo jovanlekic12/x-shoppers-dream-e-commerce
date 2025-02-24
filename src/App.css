@@ -821,15 +821,36 @@ a:visited {
   font-weight: 500;
 }
 
-.add__to__cart__btn {
+.add__to__cart__btn,
+.add__to__cart__btn:visited,
+.keep__shoping__link,
+.keep__shoping__link:visited {
   background-color: #b05ec4;
   color: #fff;
   margin-top: 2rem;
 }
 
-.add__to__cart__btn:hover {
+.add__to__cart__btn:hover,
+.keep__shoping__link:hover {
   background-color: #8d37a3;
   transition: all 0.3s;
+  color: #fff;
+}
+
+.empty__cart__heading {
+  font-size: 3.6rem;
+  letter-spacing: 0.75px;
+  line-height: 1.25;
+  margin-bottom: 1.6rem;
+  margin-top: 9.6rem;
+  text-align: center;
+  color: #444;
+}
+
+.empty__cart__div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @keyframes timerAnimation {
