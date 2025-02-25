@@ -33,8 +33,10 @@ const cartSlice = createSlice({
       state.cartItems.push(item);
     },
     removeItem: (state, action) => {
-      const itemId = action.payload;
-      state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
+      const cartItem = action.payload;
+      state.cartItems = state.cartItems.filter((item) => {
+        item.chosenColor !== cartItem.chosenColor && item.id !== cartItem.id;
+      });
     },
     increase: (state, { payload }) => {
       const cartItem = state.cartItems.find((item) => item.id === payload.id);
