@@ -6,9 +6,11 @@ import { BsStarFill } from "react-icons/bs";
 import { addCartItem, decrease, increase } from "@/features/cart/cartSlice";
 import ImageArea from "./ImageArea/ImageArea";
 import TextArea from "./TextArea/TextArea";
+import { useSelector } from "react-redux";
 
 function SingleProduct(props) {
   let params = useParams();
+  const { cartItems } = useSelector((store) => store.cart);
 
   const [product, setProduct] = useState();
   const [mainPhoto, setMainPhoto] = useState();

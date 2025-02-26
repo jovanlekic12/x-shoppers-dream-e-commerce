@@ -44,16 +44,18 @@ function TextArea(props) {
               productForCart={productForCart}
             ></AmountDiv>
           )}
-          <Link to="/cart">
-            <button
-              className="add__to__cart__btn btn"
-              onClick={() => {
-                dispatch(addCartItem(productForCart));
-              }}
-            >
-              Add to cart
-            </button>
-          </Link>
+          {productForCart && (
+            <Link to="/cart">
+              <button
+                className="add__to__cart__btn btn"
+                onClick={() => {
+                  dispatch(addCartItem(productForCart));
+                }}
+              >
+                Add to cart
+              </button>
+            </Link>
+          )}
         </div>
       )}
     </div>

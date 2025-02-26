@@ -29,6 +29,17 @@ const cartSlice = createSlice({
         if (cartItem.amount + item.amount <= cartItem.stock)
           cartItem.amount = cartItem.amount + item.amount;
         return;
+      } else if (
+        state.cartItems.length > 0 &&
+        state.cartItems.some(
+          (cartItem) =>
+            cartItem.id === item.id &&
+            cartItem.chosenColor === item.chosenColor &&
+            cartItem.amount + item.amount < cartItem.stock
+        )
+      ) {
+        state.cartItems.push(item);
+        return;
       }
       state.cartItems.push(item);
     },
