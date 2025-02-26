@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import Sidebar from "@/pages/Products/Sidebar/Sidebar";
 import ProductsSection from "./ProductsSection/ProductsSection";
-
+import { FaBars } from "react-icons/fa";
 function ProductsPage() {
+  const [isOpened, setIsOpened] = useState(false);
+
   const [products, setProducts] = useState([]);
 
   const colors = Array.from(
@@ -89,6 +91,8 @@ function ProductsPage() {
     <section className="products__page__section">
       <div className="products__page__div">
         <Sidebar
+          setIsOpened={setIsOpened}
+          isOpened={isOpened}
           colors={colors}
           companies={companies}
           categories={categories}
@@ -98,6 +102,7 @@ function ProductsPage() {
         <ProductsSection
           setFilteredProducts={setFilteredProducts}
           products={filteredProducts}
+          setIsOpened={setIsOpened}
         ></ProductsSection>
       </div>
     </section>

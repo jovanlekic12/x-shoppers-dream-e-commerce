@@ -59,12 +59,17 @@ body {
 }
 
 .x__icon,
-.sidebar__btn {
+.sidebar__btn,
+.filters__btn {
   width: 2.5rem;
   height: 2.5rem;
   display: none;
   color: #444;
   cursor: pointer;
+}
+
+.filters__btn {
+  color: #b05ec4;
 }
 
 .links__div {
@@ -968,6 +973,70 @@ a:visited {
 }
 
 @media (max-width: 800px) {
+  .header {
+    padding: 3rem 2rem;
+  }
+  .products__div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .products__page__div {
+    grid-template-columns: 1fr;
+    padding: 0 2rem;
+  }
+
+  .products__sort__div {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 0.3fr 1.2fr 2fr 1.7fr;
+    justify-content: center;
+    margin-bottom: 3.4rem;
+  }
+
+  .products__count {
+    align-self: center;
+    justify-self: center;
+  }
+
+  .products__sort {
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .filters__btn {
+    align-self: center;
+    justify-self: center;
+  }
+
+  .sidebar__div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .category__btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sidebar {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffffec;
+    transform: translate(-100%, 0);
+    transition: all ease 0.3s;
+    z-index: 999;
+  }
+
   .links__div {
     flex-direction: column;
     align-items: center;
@@ -989,9 +1058,11 @@ a:visited {
     transform: translate(100%, 0);
     transition: all ease 0.3s;
   }
-  .sidebar__btn {
+  .sidebar__btn,
+  .filters__btn {
     display: block;
   }
+
   .x__icon {
     display: block;
     position: absolute;
@@ -999,7 +1070,8 @@ a:visited {
     right: 2rem;
   }
 
-  .main__nav__mobile {
+  .main__nav__mobile,
+  .sidebar__mobile {
     transform: translate(0, 0);
   }
   .cart__div {

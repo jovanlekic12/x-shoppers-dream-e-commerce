@@ -1,7 +1,7 @@
 import ProductCard from "./ProductCard/ProductCard";
-
+import { BsLayoutTextSidebarReverse } from "react-icons/bs";
 function ProductsSection(props) {
-  const { products, setFilteredProducts } = props;
+  const { products, setFilteredProducts, setIsOpened } = props;
 
   function handleSort(option) {
     if (option === "price lowest") {
@@ -26,6 +26,10 @@ function ProductsSection(props) {
   return (
     <section className="products__section">
       <div className="products__sort__div">
+        <BsLayoutTextSidebarReverse
+          className="filters__btn"
+          onClick={() => setIsOpened(true)}
+        ></BsLayoutTextSidebarReverse>
         <p className="products__count">
           {products.length} {products.length === 1 ? "product" : "products"}{" "}
           found

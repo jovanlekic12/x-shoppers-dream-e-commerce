@@ -5,12 +5,22 @@ import Price from "@/pages/Products/Sidebar/Price/Index";
 import Shipping from "@/pages/Products/Sidebar/Shipping/Index";
 import Button from "@/ui/Button";
 import Input from "@/ui/Input";
+import { ImCross } from "react-icons/im";
 function Sidebar(props) {
-  const { colors, companies, categories, handleFilter, setFilters, filters } =
-    props;
+  const {
+    isOpened,
+    colors,
+    companies,
+    categories,
+    handleFilter,
+    setFilters,
+    filters,
+    setIsOpened,
+  } = props;
 
   return (
-    <aside className="sidebar">
+    <aside className={isOpened ? "sidebar sidebar__mobile" : "sidebar"}>
+      <ImCross className="x__icon" onClick={() => setIsOpened(false)}></ImCross>
       <Input
         type="text"
         className="sidebar__search"
