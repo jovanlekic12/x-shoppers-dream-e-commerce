@@ -43,31 +43,34 @@ const cartSlice = createSlice({
       }
       state.cartItems.push(item);
     },
-    removeItem: (state, action) => {
-      const cartItem = action.payload;
+    removeItem: (state, { payload }) => {
       state.cartItems = state.cartItems.filter((item) => {
-        item !== cartItem;
+        item.id !== payload.id && item.chosenColor !== payload.chosenColor;
       });
-      console.log(cartItem);
     },
     increase: (state, { payload }) => {
       const sameCartItems = state.cartItems.filter(
-        (item) => item.id === payload
+        (item) => item.id === payload.id
       );
 
       const cartItemsAmount = sameCartItems.reduce(
         (amount, item) => amount + item.amount,
         0
       );
-      console.log(cartItemsAmount);
-      const cartItem = state.cartItems.find((item) => item.id === payload);
+      const cartItem = state.cartItems.find(
+        (item) =>
+          item.id === payload.id && item.chosenColor === payload.chosenColor
+      );
       if (cartItemsAmount === cartItem.stock) {
         return;
       }
       cartItem.amount = cartItem.amount + 1;
     },
     decrease: (state, { payload }) => {
-      const cartItem = state.cartItems.find((item) => item.id === payload);
+      const cartItem = state.cartItems.find(
+        (item) =>
+          item.id === payload.id && item.chosenColor === payload.chosenColor
+      );
       if (cartItem.amount === 1) {
         return;
       }

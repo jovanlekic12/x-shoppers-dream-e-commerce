@@ -4,28 +4,22 @@ function ProductsSection(props) {
   const { products, setFilteredProducts } = props;
 
   function handleSort(option) {
-    switch (option) {
-      case "price lowest":
-        setFilteredProducts((prev) => prev.sort((a, b) => a.price - b.price));
-        console.log(products);
-        return;
-      case "price highest":
-        setFilteredProducts((prev) => prev.sort((a, b) => b.price - a.price));
-        console.log(products);
-
-        return;
-      case "name a-z":
-        setFilteredProducts((prev) =>
-          prev.sort((a, b) => a.name.localeCompare(b.name))
-        );
-        return;
-      case "name z-a":
-        setFilteredProducts((prev) =>
-          prev.sort((a, b) => b.name.localeCompare(a.name))
-        );
-        return;
-      default:
-        return products;
+    if (option === "price lowest") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.price - b.price)
+      );
+    } else if (option === "price highest") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => b.price - a.price)
+      );
+    } else if (option === "name a-z") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.name.localeCompare(b.name))
+      );
+    } else if (option === "name z-a") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => b.name.localeCompare(a.name))
+      );
     }
   }
 
@@ -56,4 +50,5 @@ function ProductsSection(props) {
     </section>
   );
 }
+
 export default ProductsSection;
