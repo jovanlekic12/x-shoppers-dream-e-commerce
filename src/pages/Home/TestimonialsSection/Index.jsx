@@ -71,6 +71,7 @@ function TestimonialsSection() {
         {reviews.map((item, index) => {
           return (
             <div
+              key={item.name}
               className="slider"
               style={{ transform: `translateX(${index - moveIndex}00%)` }}
             >

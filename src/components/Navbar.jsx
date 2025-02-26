@@ -14,15 +14,16 @@ function Navbar({ isSectionVisible }) {
   return (
     <header className={isSectionVisible ? "header" : "header header__sticky"}>
       <div className="inner__header">
-        <div className="logo__div">
+        <Link className="logo__div" to="/">
           <AiOutlineShopping />
           <span className="logo">X Shoppers Dream</span>
-        </div>
+        </Link>
         <nav className={isOpened ? "main__nav main__nav__mobile" : "main__nav"}>
           <div className="links__div">
             {links.map((link, index) => {
               return (
                 <Link
+                  key={index}
                   onClick={() => setActiveIndex(index)}
                   className={
                     activeIndex === index

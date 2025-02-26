@@ -46,16 +46,28 @@ const cartSlice = createSlice({
     removeItem: (state, action) => {
       const cartItem = action.payload;
       state.cartItems = state.cartItems.filter((item) => {
-        item.chosenColor !== cartItem.chosenColor && item.id !== cartItem.id;
+        item !== cartItem;
       });
+      console.log(cartItem);
     },
     increase: (state, { payload }) => {
-      const cartItem = state.cartItems.find((item) => item.id === payload.id);
-      if (cartItem.amount === cartItem.stock) return;
+      const sameCartItems = state.cartItems.filter(
+        (item) => item.id === payload
+      );
+
+      const cartItemsAmount = sameCartItems.reduce(
+        (amount, item) => amount + item.amount,
+        0
+      );
+      console.log(cartItemsAmount);
+      const cartItem = state.cartItems.find((item) => item.id === payload);
+      if (cartItemsAmount === cartItem.stock) {
+        return;
+      }
       cartItem.amount = cartItem.amount + 1;
     },
     decrease: (state, { payload }) => {
-      const cartItem = state.cartItems.find((item) => item.id === payload.id);
+      const cartItem = state.cartItems.find((item) => item.id === payload);
       if (cartItem.amount === 1) {
         return;
       }
@@ -83,6 +95,12 @@ export const selectTotalAmount = createSelector([selectItems], (items) =>
 export const selectTotalPrice = createSelector([selectItems], (items) =>
   items.reduce((price, item) => price + item.unitPrice * item.amount, 0)
 );
+
+export const selectItemsById = (id) =>
+  createSelector(
+    (state) => state.cart.cartItems,
+    (cartItems) => cartItems.filter((item) => item.id === id)
+  );
 
 export const {
   clearCart,

@@ -12,7 +12,11 @@ function Companies(props) {
         }
       >
         {companies.map((company) => {
-          return <option value={company}>{company}</option>;
+          return (
+            <option key={company} value={company}>
+              {company}
+            </option>
+          );
         })}
       </select>
     </div>

@@ -9,6 +9,7 @@ function ColorDiv(props) {
           product.colors.map((color) => {
             return (
               <button
+                key={color}
                 className={
                   productForCart.chosenColor === color
                     ? "single__product__color__btn active__color"

@@ -53,6 +53,7 @@ function OperationsSection() {
           {items.map((item, index) => {
             return (
               <button
+                key={item.name}
                 className={
                   index === activeIndex
                     ? "operations__btn active__btn"

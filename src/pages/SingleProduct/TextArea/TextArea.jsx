@@ -3,8 +3,8 @@ import ColorDiv from "./ColorDiv/Index";
 import RatingDiv from "./RatingDiv/Index";
 import InfoDiv from "./InfoDiv/Index";
 import { Link } from "react-router";
-import { useDispatch } from "react-redux";
-import { addCartItem } from "@/features/cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addCartItem, selectItemsById } from "@/features/cart/cartSlice";
 function TextArea(props) {
   const {
     product,
@@ -15,6 +15,12 @@ function TextArea(props) {
   } = props;
 
   const dispatch = useDispatch();
+  const sameCartItems = useSelector(selectItemsById(product.id));
+
+  const cartItemsAmount = sameCartItems.reduce(
+    (amount, item) => amount + item.amount,
+    0
+  );
 
   return (
     <div className="single__product__text__area">
@@ -47,10 +53,19 @@ function TextArea(props) {
           {productForCart && (
             <Link to="/cart">
               <button
-                className="add__to__cart__btn btn"
+                className={
+                  cartItemsAmount + productForCart.amount > productForCart.stock
+                    ? "add__to__cart__btn btn disabled btn"
+                    : "add__to__cart__btn btn "
+                }
                 onClick={() => {
                   dispatch(addCartItem(productForCart));
                 }}
+                disabled={
+                  cartItemsAmount + productForCart.amount > productForCart.stock
+                    ? true
+                    : false
+                }
               >
                 Add to cart
               </button>

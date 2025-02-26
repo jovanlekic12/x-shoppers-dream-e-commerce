@@ -3,13 +3,13 @@ import { useState } from "react";
 function Categories(props) {
   const { categories, setFilters, filters } = props;
 
-  console.log(filters);
   return (
     <div className="sidebar__div">
       <h5 className="sidebar__heading">Category</h5>
-      {categories.map((category, index) => {
+      {categories.map((category) => {
         return (
           <button
+            key={category}
             className={
               filters.category === category
                 ? "category__btn active__link"

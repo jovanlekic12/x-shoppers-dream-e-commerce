@@ -81,8 +81,6 @@ function ProductsPage() {
     setFilteredProducts(updatedProducts);
   }, [filters]);
 
-  console.log(products);
-
   useEffect(() => {
     setFilteredProducts(products);
   }, [products]);

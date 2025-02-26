@@ -22,6 +22,7 @@ function Colors(props) {
         {colors.map((color) => {
           return (
             <button
+              key={color}
               className={
                 filters.color === color
                   ? "sidebar__color__btn active__color"

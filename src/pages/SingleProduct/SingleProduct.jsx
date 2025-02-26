@@ -1,20 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { FaArrowDownLong } from "react-icons/fa6";
-import { BsStarFill } from "react-icons/bs";
 
-import { addCartItem, decrease, increase } from "@/features/cart/cartSlice";
 import ImageArea from "./ImageArea/ImageArea";
 import TextArea from "./TextArea/TextArea";
-import { useSelector } from "react-redux";
 
 function SingleProduct(props) {
   let params = useParams();
-  const { cartItems } = useSelector((store) => store.cart);
-
   const [product, setProduct] = useState();
   const [mainPhoto, setMainPhoto] = useState();
-  const [activeIndex, setActiveIndex] = useState(0);
   const [productForCart, setProductForCart] = useState();
   const url = "https://www.course-api.com/react-store-single-product?id=";
 
@@ -51,8 +45,6 @@ function SingleProduct(props) {
       setProductForCart(item);
     }
   }, [product]);
-
-  console.log(productForCart);
 
   return (
     <section className="single__product__section">

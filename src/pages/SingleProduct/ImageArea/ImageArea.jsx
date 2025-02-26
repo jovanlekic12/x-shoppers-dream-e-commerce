@@ -14,6 +14,7 @@ function ImageArea(props) {
         {product.images.map((img) => {
           return (
             <img
+              key={img.url}
               src={img.url}
               alt="product photo"
               className={

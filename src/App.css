@@ -953,6 +953,11 @@ a:visited {
   border-bottom: solid 1px #dee2e6;
 }
 
+.disabled {
+  opacity: 0.5;
+  cursor: no-drop;
+}
+
 @keyframes timerAnimation {
   0% {
     width: 0%;
