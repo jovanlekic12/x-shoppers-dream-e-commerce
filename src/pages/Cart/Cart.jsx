@@ -5,6 +5,7 @@ import { removeItem } from "@/features/cart/cartSlice";
 import CartContainer from "./CartContainer/Index";
 import CartCategories from "./CartCategories/Index";
 import CartArticle from "./CartArticle/CartArticle";
+import ButtonsDiv from "./ButtonsDiv/Index";
 function CartPage() {
   const { cartItems } = useSelector((store) => store.cart);
 
@@ -21,6 +22,7 @@ function CartPage() {
           })}
         </div>
       )}
+      <ButtonsDiv />
     </section>
   );
 }

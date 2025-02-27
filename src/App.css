@@ -618,7 +618,8 @@ a:visited {
   width: 50%;
   transition: 0.3s background-color;
 }
-.sidebar__clear__btn:hover {
+.sidebar__clear__btn:hover,
+.clear__cart__btn:hover {
   background-color: #ac0c0c;
   transition: 0.3s background-color;
 }
@@ -780,7 +781,6 @@ a:visited {
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 0.75rem;
-  padding-top: 1rem;
   color: #b05ec4;
 }
 
@@ -961,6 +961,29 @@ a:visited {
 .disabled {
   opacity: 0.5;
   cursor: no-drop;
+}
+
+.cart__products__link,
+.cart__products__link:visited {
+  background-color: #b05ec4;
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+.clear__cart__btn {
+  font-size: 1.6rem;
+  background-color: #e81616;
+  color: #fff;
+  padding: 1rem 2rem;
+  transition: 0.3s background-color;
+}
+
+.cart__buttons__div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 120rem;
+  margin: 1rem auto;
 }
 
 @keyframes timerAnimation {
