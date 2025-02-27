@@ -1,11 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router";
-import { RiDeleteBin5Fill } from "react-icons/ri";
-import { removeItem } from "@/features/cart/cartSlice";
 import CartContainer from "./CartContainer/Index";
 import CartCategories from "./CartCategories/Index";
 import CartArticle from "./CartArticle/CartArticle";
 import ButtonsDiv from "./ButtonsDiv/Index";
+import PriceDiv from "./PriceDiv/Index";
 function CartPage() {
   const { cartItems } = useSelector((store) => store.cart);
 
@@ -17,12 +15,15 @@ function CartPage() {
       {cartItems.length > 0 && (
         <div className="cart__container cart__container__items">
           <CartCategories />
-          {cartItems.map((item) => {
-            return <CartArticle {...item} />;
-          })}
+          <div className="cart__list">
+            {cartItems.map((item) => {
+              return <CartArticle {...item} />;
+            })}
+          </div>
+          <ButtonsDiv />
+          <PriceDiv cartItems={cartItems} />
         </div>
       )}
-      <ButtonsDiv />
     </section>
   );
 }

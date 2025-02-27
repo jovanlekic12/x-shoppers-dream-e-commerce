@@ -96,7 +96,7 @@ export const selectTotalAmount = createSelector([selectItems], (items) =>
 );
 
 export const selectTotalPrice = createSelector([selectItems], (items) =>
-  items.reduce((price, item) => price + item.unitPrice * item.amount, 0)
+  items.reduce((price, item) => price + item.price * item.amount, 0)
 );
 
 export const selectItemsById = (id) =>

@@ -26,13 +26,12 @@ function FeaturedProductsSection() {
     <section className="section" id="featured_products">
       <div className="section__main">
         <header className="section__header">
-          <h3 className="section__heading1">Creeds we live by</h3>
+          <h3 className="section__heading1">Featured Products</h3>
           <h4 className="section__heading2">
-            Elevate your home with our attitude of excellence and timeless
-            style.
+            The art of modern living unlocked.
           </h4>
         </header>
-        <div className="section__container">
+        <div className="section__container featured__products__container">
           {products.map((product) => {
             return (
               <article className="featured__products__card" key={product.img}>
