@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 function OperationsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const { ref: sectionRef, inView: isSectionVisible, entry } = useInView();
+  const { ref: sectionRef, inView: isSectionVisible } = useInView();
 
   const items = [
     {
