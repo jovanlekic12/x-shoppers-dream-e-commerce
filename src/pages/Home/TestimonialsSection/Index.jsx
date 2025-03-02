@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import { useInView } from "react-intersection-observer";
+
 function TestimonialsSection() {
   const [moveIndex, setMoveIndex] = useState(0);
-  const { ref: sectionRef, inView: isSectionVisible, entry } = useInView();
+  const [timerKey, setTimerKey] = useState(0);
+  const { ref: sectionRef, inView: isSectionVisible } = useInView();
+  const intervalRef = useRef(null);
 
   const reviews = [
     {
@@ -42,12 +45,28 @@ function TestimonialsSection() {
 
   function handleSlide(side) {
     if (side === "left") {
-      setMoveIndex(moveIndex === 0 ? reviews.length - 1 : moveIndex - 1);
+      setMoveIndex((prevIndex) =>
+        prevIndex === 0 ? reviews.length - 1 : prevIndex - 1
+      );
     } else if (side === "right") {
-      setMoveIndex(moveIndex === reviews.length - 1 ? 0 : moveIndex + 1);
+      setMoveIndex((prevIndex) =>
+        prevIndex === reviews.length - 1 ? 0 : prevIndex + 1
+      );
     }
+    setTimerKey((prevKey) => prevKey + 1);
+    resetInterval();
   }
-  // setInterval(() => handleSlide("right"), 5000);
+
+  function resetInterval() {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => handleSlide("right"), 5000);
+  }
+
+  useEffect(() => {
+    resetInterval();
+
+    return () => clearInterval(intervalRef.current);
+  }, []);
 
   return (
     <section
@@ -60,7 +79,7 @@ function TestimonialsSection() {
     >
       <div className="section__main testimonials__main">
         <header className="section__header">
-          <h3 className="section__heading1">Testimonialss</h3>
+          <h3 className="section__heading1">Testimonials</h3>
           <h4 className="section__heading2">
             Discover the stories of our delighted customers - thousands and
             counting!
@@ -68,48 +87,47 @@ function TestimonialsSection() {
         </header>
       </div>
       <div className="reviews__container">
-        {reviews.map((item, index) => {
-          return (
-            <div
-              key={item.name}
-              className="slider"
-              style={{ transform: `translateX(${index - moveIndex}00%)` }}
-            >
-              <article className="review__article">
-                <h5 className="review__title">{item.title}</h5>
-                <div className="timer__div__outside">
-                  <div className="timer__div__inside"></div>
-                </div>
-                <p className="review__text">{item.text}</p>
-                <div className="review__author__div">
-                  <img
-                    src={item.img}
-                    alt="author image"
-                    className="review__author__img"
-                  />
-                  <h6 className="review__author__name">{item.name}</h6>
-                  <p className="review__author__origin">
-                    {item.city}, {item.country}
-                  </p>
-                </div>
-              </article>
-            </div>
-          );
-        })}
+        {reviews.map((item, index) => (
+          <div
+            key={item.name}
+            className="slider"
+            style={{ transform: `translateX(${index - moveIndex}00%)` }}
+          >
+            <article className="review__article">
+              <h5 className="review__title">{item.title}</h5>
+              <div className="timer__div__outside">
+                <div key={timerKey} className="timer__div__inside"></div>
+              </div>
+              <p className="review__text">{item.text}</p>
+              <div className="review__author__div">
+                <img
+                  src={item.img}
+                  alt="author image"
+                  className="review__author__img"
+                />
+                <h6 className="review__author__name">{item.name}</h6>
+                <p className="review__author__origin">
+                  {item.city}, {item.country}
+                </p>
+              </div>
+            </article>
+          </div>
+        ))}
         <button
           className="arrow arrow__left"
           onClick={() => handleSlide("left")}
         >
-          <FaArrowLeftLong></FaArrowLeftLong>
+          <FaArrowLeftLong />
         </button>
         <button
           className="arrow arrow__right"
           onClick={() => handleSlide("right")}
         >
-          <FaArrowRightLong></FaArrowRightLong>
+          <FaArrowRightLong />
         </button>
       </div>
     </section>
   );
 }
+
 export default TestimonialsSection;

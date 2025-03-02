@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 function Navbar({ isSectionVisible }) {
   const [isOpened, setIsOpened] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const links = ["home", "about", "products"];
+  const links = ["home", "products"];
   const totalAmount = useSelector(selectTotalAmount);
 
   return (

@@ -22,11 +22,7 @@ function HomeSection({ sectionRef }) {
         </div>
       </div>
       <div className="home__section__right">
-        <img
-          className="home__section__img"
-          src="/src/assets/images/heroimg.png"
-          alt=""
-        />
+        <img className="home__section__img" src="/images/heroimg.png" alt="" />
       </div>
     </section>
   );
