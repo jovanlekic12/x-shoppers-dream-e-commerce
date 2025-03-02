@@ -1411,7 +1411,13 @@ a:visited {
     display: flex;
     flex-direction: column;
   }
+  .cart__price__container {
+    justify-content: center;
+  }
 
+  .cart__price__div {
+    min-width: 20rem;
+  }
   .cart__item__img__div {
     display: flex;
     flex-direction: column;
@@ -1642,8 +1648,8 @@ a:visited {
 }
 @media (max-width: 417px) {
   .single__product__small__img {
-    width: 2rem;
-    height: 2rem;
+    width: 6rem;
+    height: 4rem;
   }
   .cart__container,
   .single__product__container,
