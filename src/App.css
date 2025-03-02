@@ -690,9 +690,6 @@ a:visited {
 .product__card__name {
   font-size: 1.4rem;
   font-weight: 500;
-  line-height: 0.75rem;
-  padding-top: 1rem;
-  margin-bottom: 0.8rem;
   color: #444;
   text-transform: capitalize;
 }
@@ -1081,6 +1078,10 @@ a:visited {
 }
 
 @media (max-width: 1050px) {
+  .featured__in__logo {
+    height: 2.6rem;
+  }
+
   .products__sort__div {
     grid-template-columns: 1.5fr 2.5fr 2.5fr;
   }
@@ -1112,6 +1113,10 @@ a:visited {
 }
 
 @media (max-width: 913px) {
+  .featured__in__logo {
+    height: 2.4rem;
+  }
+
   .btn {
     font-size: 1.4rem;
     padding: 1rem 2rem;
@@ -1321,6 +1326,11 @@ a:visited {
 }
 
 @media (max-width: 779px) {
+  .featured__in__logos {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+  }
+
   .single__product__main__img {
     height: 40rem;
     width: 100%;
@@ -1494,6 +1504,17 @@ a:visited {
 }
 
 @media (max-width: 581px) {
+  .featured__in__logos {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 2rem;
+  }
+
+  .featured__in__logo {
+    height: 3rem;
+  }
+
   .single__product__small__img {
     width: 8.5rem;
     height: 6rem;

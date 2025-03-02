@@ -9,7 +9,7 @@ function Home({ sectionRef }) {
   return (
     <>
       <HomeSection sectionRef={sectionRef}></HomeSection>
-      {/* <FeaturedInSection></FeaturedInSection> */}
+      <FeaturedInSection></FeaturedInSection>
       <FeaturedProductsSection></FeaturedProductsSection>
       <CreedsSection></CreedsSection>
       <OperationsSection></OperationsSection>
